@@ -3,137 +3,435 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080b0f">
 
-    <title>Alpha Motors — автомобили</title>
+    <title>Alpha Motors — автомобили в Жезказгане</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #f2f4f3;
-            font-family: Arial, sans-serif;
+            padding: 18px;
+            color: #f7f8fa;
+
+            background-image:
+                linear-gradient(
+                    rgba(4, 7, 10, 0.68),
+                    rgba(4, 7, 10, 0.88)
+                ),
+                url("changan-background.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 460px;
+            margin: 0 auto;
         }
 
         .card {
-            width: 90%;
-            max-width: 400px;
-            padding: 40px 25px;
-            box-sizing: border-box;
-            background: white;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            padding: 24px 20px 22px;
+
+            background: rgba(14, 18, 23, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 26px;
+
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        .avatar {
-            display: block;
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            flex: 0 0 70px;
             object-fit: cover;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+
+            border: 2px solid rgba(255, 255, 255, 0.18);
+            border-radius: 50%;
+
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        .brand-name {
+            margin: 0 0 4px;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+        }
+
+        .brand-place {
+            margin: 0;
+            color: #adb5bf;
+            font-size: 14px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 7px 11px;
+
+            color: #dce2e8;
+            background: #262e37;
+            border-radius: 999px;
+
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         h1 {
-            margin: 0 0 12px;
-            font-size: 30px;
+            margin: 0;
+            font-size: clamp(30px, 9vw, 42px);
+            line-height: 1.02;
+            letter-spacing: -0.045em;
         }
 
-        .description {
-            margin-bottom: 25px;
-            color: #555;
-            font-size: 17px;
-            line-height: 1.4;
+        .accent {
+            color: #ff4d4f;
         }
 
-        .whatsapp,
-        .instagram {
-            display: block;
-            padding: 17px;
+        .lead {
+            margin: 16px 0 18px;
+            color: #c7cdd4;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            padding: 8px 11px;
+
+            color: #edf0f3;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 10px;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .button {
+            display: flex;
+            min-height: 56px;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            padding: 14px 16px;
+
             color: white;
+            border-radius: 15px;
+
+            text-align: center;
             text-decoration: none;
-            border-radius: 14px;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 17px;
+            font-weight: 850;
+        }
+
+        .button:active {
+            transform: scale(0.985);
+            filter: brightness(0.94);
         }
 
         .whatsapp {
-            background: #25D366;
+            background: #20bd5a;
+            box-shadow: 0 12px 26px rgba(32, 189, 90, 0.23);
+        }
+
+        .browser-note {
+            margin: 13px 0 17px;
+            padding: 14px;
+
+            color: #ff6b6d;
+            background: rgba(255, 77, 79, 0.1);
+            border: 1px solid rgba(255, 77, 79, 0.5);
+            border-radius: 14px;
+
+            text-align: center;
+            font-size: 16px;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .browser-note span {
+            display: block;
+            margin-top: 4px;
+
+            color: white;
+            font-size: 14px;
+            font-weight: 750;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .call {
+            background: #2e3741;
         }
 
         .instagram {
-            margin-top: 12px;
             background: linear-gradient(
                 135deg,
-                #833AB4,
-                #E1306C,
-                #F77737
+                #833ab4,
+                #e1306c,
+                #f77737
             );
         }
 
-        .note {
-            margin-top: 18px;
-            color: #777;
-            font-size: 14px;
-            line-height: 1.4;
+        .section {
+            margin-top: 22px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .footer {
-            margin-top: 20px;
-            color: #aaa;
-            font-size: 12px;
+        .section-title {
+            margin: 0 0 13px;
+            font-size: 17px;
+            font-weight: 850;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+        }
+
+        .benefit {
+            min-height: 80px;
+            padding: 13px;
+
+            color: #dce1e6;
+            background: rgba(255, 255, 255, 0.055);
+            border-radius: 14px;
+
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .benefit-icon {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 20px;
+        }
+
+        .address {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+
+            padding: 15px;
+
+            color: #f5f6f7;
+            background: rgba(255, 255, 255, 0.055);
+            border-radius: 14px;
+
+            text-decoration: none;
+        }
+
+        .address strong {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 15px;
+        }
+
+        .address small {
+            color: #aeb6bf;
+            font-size: 13px;
+        }
+
+        .arrow {
+            color: #ff6062;
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .disclaimer {
+            margin: 17px 3px 0;
+            color: #7f8994;
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.45;
+        }
+
+        @media (max-width: 350px) {
+            .button-grid,
+            .benefits {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="card">
+    <main class="page">
+        <section class="card">
 
-        <img
-            class="avatar"
-            src="alpha-motors-logo.jpeg"
-            alt="Логотип Alpha Motors"
-        >
+            <div class="brand">
+                <img
+                    class="logo"
+                    src="alpha-motors-logo.jpeg"
+                    alt="Логотип Alpha Motors"
+                >
 
-        <h1>Alpha Motors</h1>
+                <div>
+                    <p class="brand-name">ALPHA MOTORS</p>
+                    <p class="brand-place">
+                        Автосалон · Жезказган
+                    </p>
+                </div>
+            </div>
 
-        <div class="description">
-            НОВЫЕ И Б/У автомобили без ПВ
-        </div>
+            <div class="eyebrow">
+                Новые и автомобили с пробегом
+            </div>
 
-        <a
-            class="whatsapp"
-            href="https://wa.me/77073486747"
-        >
-            💬 Написать в WhatsApp
-        </a>
+            <h1>
+                Автомобили<br>
+                <span class="accent">
+                    без первого взноса
+                </span>
+            </h1>
 
-        <a
-            class="instagram"
-            href="https://www.instagram.com/alphamotors__zhezkazgan"
-        >
-            📸 Перейти в Instagram
-        </a>
+            <p class="lead">
+                Поможем подобрать автомобиль и ответим
+                на вопросы по оформлению.
+            </p>
 
-<div style="
-    margin-top: 22px;
-    color: red;
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 1.35;
-    text-transform: uppercase;
-">
-    ЕСЛИ ССЫЛКА НЕ ОТКРЫВАЕТСЯ — НАЖМИТЕ НА ТРИ ТОЧКИ СВЕРХУ И ВЫБЕРИТЕ «ОТКРЫТЬ В БРАУЗЕРЕ»
-</div>
+            <div class="tags">
+                <span class="tag">Кредит</span>
+                <span class="tag">Trade-in</span>
+                <span class="tag">Доставка</span>
+            </div>
 
-        <div class="footer">
-            Alpha Motors · Жезказган
-        </div>
+            <a
+                class="button whatsapp"
+                href="https://wa.me/77073486747?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%AF%20%D0%BF%D0%B5%D1%80%D0%B5%D1%88%D1%91%D0%BB%20%D0%B8%D0%B7%20TikTok.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C."
+            >
+                💬 Получить подборку в WhatsApp
+            </a>
 
-    </div>
+            <div class="browser-note">
+                ССЫЛКА НЕ ОТКРЫВАЕТСЯ?
+
+                <span>
+                    Нажмите на три точки сверху →
+                    «Открыть в браузере»
+                </span>
+            </div>
+
+            <div class="button-grid">
+
+                <a
+                    class="button call"
+                    href="tel:+77073486747"
+                >
+                    📞 Позвонить
+                </a>
+
+                <a
+                    class="button instagram"
+                    href="https://www.instagram.com/alphamotors__zhezkazgan"
+                >
+                    📸 Instagram
+                </a>
+
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    Почему выбирают нас
+                </h2>
+
+                <div class="benefits">
+
+                    <div class="benefit">
+                        <span class="benefit-icon">🚘</span>
+                        Новые и автомобили с пробегом
+                    </div>
+
+                    <div class="benefit">
+                        <span class="benefit-icon">🤝</span>
+                        Принимаем автомобиль в Trade-in
+                    </div>
+
+                    <div class="benefit">
+                        <span class="benefit-icon">📋</span>
+                        Помощь с оформлением кредита
+                    </div>
+
+                    <div class="benefit">
+                        <span class="benefit-icon">🚚</span>
+                        Доставка автомобиля клиенту
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    Ждём вас в автосалоне
+                </h2>
+
+                <a
+                    class="address"
+                    href="https://2gis.kz/zhezkazgan/search/%D0%A5%D0%BE%D0%BB%D0%BC%D0%B5%D1%86%D0%BA%D0%BE%D0%B3%D0%BE%204%D0%95"
+                >
+                    <span>
+                        <strong>
+                            📍 Жезказган, ул. Холмецкого, 4Е
+                        </strong>
+
+                        <small>
+                            Открыть адрес в 2ГИС
+                        </small>
+                    </span>
+
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <p class="disclaimer">
+                Условия финансирования зависят от решения банка.
+                Подробности уточняйте у менеджера Alpha Motors.
+            </p>
+
+        </section>
+    </main>
 </body>
 </html>
