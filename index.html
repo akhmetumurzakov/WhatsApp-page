@@ -66,10 +66,8 @@
             width: 72px;
             height: 72px;
             object-fit: cover;
-
             border: 2px solid rgba(255, 255, 255, 0.18);
             border-radius: 50%;
-
             box-shadow: 0 7px 20px rgba(0, 0, 0, 0.35);
         }
 
@@ -98,11 +96,47 @@
         }
 
         .description {
-            margin: 16px 0 21px;
+            margin: 16px 0 20px;
             color: #d1d6dc;
             font-size: 16px;
             font-weight: 650;
             line-height: 1.45;
+        }
+
+        .browser-note {
+            margin: 0 0 22px;
+            padding: 19px 15px;
+
+            color: #ffffff;
+            background: linear-gradient(
+                135deg,
+                #a80000,
+                #ed1c24
+            );
+
+            border: 2px solid #ff7777;
+            border-radius: 17px;
+
+            text-align: center;
+
+            box-shadow:
+                0 0 0 4px rgba(255, 40, 40, 0.15),
+                0 14px 30px rgba(237, 28, 36, 0.3);
+        }
+
+        .warning-title {
+            display: block;
+            margin-bottom: 9px;
+            font-size: 20px;
+            font-weight: 950;
+            line-height: 1.2;
+        }
+
+        .warning-text {
+            display: block;
+            font-size: 16px;
+            font-weight: 850;
+            line-height: 1.4;
         }
 
         .button {
@@ -172,45 +206,18 @@
 
         .whatsapp {
             background: #20bd5a;
-
-            box-shadow:
-                0 12px 26px rgba(32, 189, 90, 0.23);
+            box-shadow: 0 12px 26px rgba(32, 189, 90, 0.23);
         }
 
         .tradein {
             background: #e58b18;
-
-            box-shadow:
-                0 12px 26px rgba(229, 139, 24, 0.18);
-        }
-
-        .browser-note {
-            margin: 13px 0 16px;
-            padding: 13px;
-
-            color: #ff6b6d;
-            background: rgba(255, 77, 79, 0.1);
-
-            border: 1px solid rgba(255, 77, 79, 0.5);
-            border-radius: 14px;
-
-            text-align: center;
-            font-size: 15px;
-            font-weight: 900;
-            line-height: 1.35;
-        }
-
-        .browser-note span {
-            display: block;
-            margin-top: 4px;
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 750;
+            box-shadow: 0 12px 26px rgba(229, 139, 24, 0.18);
         }
 
         .secondary-buttons {
             display: grid;
             gap: 10px;
+            margin-top: 10px;
         }
 
         .instagram {
@@ -272,6 +279,19 @@
             Новые и с пробегом · Кредит · Trade-in · Доставка
         </p>
 
+        <div class="browser-note">
+
+            <span class="warning-title">
+                ⚠️ ЕСЛИ ССЫЛКИ НЕ ОТКРЫВАЮТСЯ
+            </span>
+
+            <span class="warning-text">
+                Нажмите на три точки сверху<br>
+                и выберите «Открыть в браузере»
+            </span>
+
+        </div>
+
         <p class="whatsapp-title">
             💬 НАПИСАТЬ В WHATSAPP
         </p>
@@ -301,17 +321,6 @@
                     WhatsApp — Хочу Trade-in
                 </span>
             </a>
-
-        </div>
-
-        <div class="browser-note">
-
-            ССЫЛКА НЕ ОТКРЫВАЕТСЯ?
-
-            <span>
-                Нажмите на три точки сверху →
-                «Открыть в браузере»
-            </span>
 
         </div>
 
